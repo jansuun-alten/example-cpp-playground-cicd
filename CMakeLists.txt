@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SPDLOG_VERSION v1.10.0)
 
-option(CodeCoverage "CodeCoverage" ON)
+option(CodeCoverage "CodeCoverage" OFF)
 option(CPP_PLANT_WATERER_TESTS "Build the tests" ON)
 
 # Enforce the use of new LTO compatibility, this add support for all compilers known to CMake
@@ -35,10 +35,10 @@ endif(CCACHE_FOUND)
 if(CPP_PLANT_WATERER_TESTS)
   include(CTest)
   if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMakeFiles/")
-    include(CodeCoverage)
-    append_coverage_compiler_flags()
-    setup_target_for_coverage_lcov(NAME coverage EXECUTABLE ${CMAKE_PROJECT_NAME}_tst DEPENDENCIES ${CMAKE_PROJECT_NAME}_tst BASE_DIRECTORY "${PROJECT_SOURCE_DIR}" EXCLUDE "lib/*" "../iothub-software-hsm/*" "build/*" "tst/*" "/usr/*" "../build-iothub-Desktop-Debug/*" "CMakeCCompilerId.c")
+#    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMakeFiles/")
+#    include(CodeCoverage)
+#    append_coverage_compiler_flags()
+#    setup_target_for_coverage_lcov(NAME coverage EXECUTABLE ${CMAKE_PROJECT_NAME}_tst DEPENDENCIES ${CMAKE_PROJECT_NAME}_tst BASE_DIRECTORY "${PROJECT_SOURCE_DIR}" EXCLUDE "lib/*" "../iothub-software-hsm/*" "build/*" "tst/*" "/usr/*" "../build-iothub-Desktop-Debug/*" "CMakeCCompilerId.c")
   endif()
 endif()
 
