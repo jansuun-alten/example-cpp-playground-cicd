@@ -44,6 +44,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: my-artifact
-        path: ${{github.workspace}}/build/cpp-plant-waterer_lib
+        path: ${{github.workspace}}/build/src/cpp-plant-waterer_lib.a
         if-no-files-found: error
       
